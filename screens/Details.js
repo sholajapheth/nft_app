@@ -10,11 +10,12 @@ import React from "react";
 import {
   CircleButton,
   DetailsBid,
+  DetailsDesc,
   FocusedStatusBar,
   RectButton,
   SubInfo,
 } from "../components";
-import { SHADOWS, SIZES, assets } from "../constants";
+import { COLORS, FONTS, SHADOWS, SIZES, assets } from "../constants";
 
 const DetailsHeader = ({ data, navigation }) => (
   <View style={{ width: "100%", height: 373 }}>
@@ -76,8 +77,14 @@ const Details = ({ route, navigation }) => {
           <React.Fragment>
             <DetailsHeader data={data} navigation={navigation} />
             <SubInfo />
-            <View style={{padding: SIZES.font}}>
+            <View style={{ padding: SIZES.font }}>
+              <DetailsDesc data={data} />
 
+              {data.bids.length > 0 && <Text style={{
+                fontSize: SIZES.font,
+                fontFamily: FONTS.semiBold,
+                color: COLORS.primary
+              }}>Curent Bids</Text>}
             </View>
           </React.Fragment>
         )}
